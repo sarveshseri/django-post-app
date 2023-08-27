@@ -1,6 +1,8 @@
-from django.db import IntegrityError
+import time
 
-from rest_framework.viewsets import GenericViewSet, ViewSet
+from django.db import IntegrityError
+from django.views.decorators.cache import cache_page
+
 from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
@@ -39,6 +41,7 @@ def create_post(request):
 
 
 @api_view(['GET'])
+@cache_page(60)
 def get_post_analysis(request, id):
     try:
         post_analysis = PostAnalysis.objects.get(post_id=id)
