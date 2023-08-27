@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Python #
+*.py[cod]
+*$py.class
+
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__
+
+# sqlite
+db.sqlite3
+
+# pycharm
+.idea
+*.iws /out/
+
+# virtual env
+venv/
